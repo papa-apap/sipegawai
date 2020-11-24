@@ -6,6 +6,6 @@ import org.springframework.stereotype.Repository;
 import apap.tugas.sipegawai.model.RoleModel;
 
 @Repository
-public interface RoleDb extends JpaRepository<RoleModel, String> {
+public interface RoleDb extends JpaRepository<RoleModel, Long> {
 
 }

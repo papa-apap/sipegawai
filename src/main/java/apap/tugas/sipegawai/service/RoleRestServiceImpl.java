@@ -23,12 +23,12 @@ public class RoleRestServiceImpl implements RoleRestService {
   }
 
   @Override
-  public RoleModel getRoleByUuid(String uuid) {
-    Optional<RoleModel> role = roleDb.findById(uuid);
+  public RoleModel getRoleById(Long id) {
+    Optional<RoleModel> role = roleDb.findById(id);
     if (role.isPresent()) {
       return role.get();
     } else {
-      throw new NoSuchElementException("Tidak ada role dengan id: " + uuid);
+      throw new NoSuchElementException("Tidak ada role dengan id: " + id);
     }
   }
 

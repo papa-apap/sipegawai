@@ -7,6 +7,8 @@ import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import org.hibernate.annotations.GenericGenerator;
 import org.hibernate.annotations.OnDelete;
 import org.hibernate.annotations.OnDeleteAction;
 
@@ -14,9 +16,8 @@ import org.hibernate.annotations.OnDeleteAction;
 @Table(name = "pegawai")
 public class PegawaiModel implements Serializable {
   @Id
-  @NotNull
-  @Size(max = 32, min = 32)
-  @Column(name = "uuid", nullable = false, unique = true)
+  @GeneratedValue(generator = "system-uuid")
+  @GenericGenerator(name = "system-uuid", strategy = "uuid")
   private String idPegawai;
 
   @NotNull
